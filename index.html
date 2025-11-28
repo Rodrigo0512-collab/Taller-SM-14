@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login con Clave Estática</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+    <!-- MENÚ LATERAL (oculto al inicio) -->
+    <nav class="menu-lateral" id="menuLateral">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Acerca</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <section class="login-container fade-in">
+      <div class="login-box">
+        <h2>Acceso Restringido</h2>
+
+        <form onsubmit="return validarLogin(event)">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Introduce tu email"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Clave de Acceso</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Introduce la clave secreta"
+              required
+            />
+          </div>
+
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
+    </section>
+    <script src="src/index.js"></script>
+  </body>
+</html>

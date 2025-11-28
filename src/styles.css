@@ -1,0 +1,258 @@
+/* Contenedor principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  padding: 1.25rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Caja del formulario */
+.login-box {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+  width: 100%;
+  max-width: 25rem;
+  text-align: center;
+  animation: slideUp 0.7s ease;
+  transition: transform 0.3s ease;
+}
+
+/* Animación suave al pasar el mouse por la tarjeta */
+.login-box:hover {
+  transform: translateY(-3px);
+}
+
+.login-box h2 {
+  margin-bottom: 1.5625rem;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Grupo de inputs */
+.input-group {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+/* Labels */
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Inputs */
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fdfdfd;
+}
+
+/* Efecto al hacer focus */
+.input-group input:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+}
+
+/* Efecto al pasar el mouse sobre el campo */
+.input-group input:hover {
+  border-color: #6a11cb;
+}
+
+/* Botón */
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #2575fc;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.625rem;
+}
+
+/* Hover del botón */
+.login-button:hover {
+  background-color: #0e63e2;
+  transform: translateY(-2px);
+}
+
+/* Animación al hacer clic */
+.login-button:active {
+  transform: scale(0.96);
+}
+
+/* -------------------------------------- */
+/* MEDIA QUERY: RESPONSIVE MÓVILES */
+/* -------------------------------------- */
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 0;
+    background: #fff;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .login-box {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    animation: none; /* Sin animación en móviles (mejor UX) */
+  }
+
+  .login-box h2 {
+    font-size: 1.7rem;
+    text-align: left;
+  }
+
+  .input-group input {
+    padding: 1rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ANIMACIONES */
+/* -------------------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mensaje de error */
+.mensaje-error {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  height: 20px; /* para evitar que mueva el contenido */
+  text-align: left;
+}
+
+/* Animación shake */
+@keyframes shakeInput {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shakeInput 0.4s;
+  border-color: #d9534f !important;
+  box-shadow: 0 0 6px rgba(217, 83, 79, 0.6) !important;
+}
+
+/* Botón deshabilitado */
+.login-button:disabled {
+  background-color: #a5bafc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+}
+
+/* MENÚ LATERAL */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -250px; /* oculto al inicio */
+  width: 250px;
+  height: 100%;
+  background: #2575fc;
+  padding-top: 4rem;
+  transition: left 0.3s ease;
+  z-index: 998;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-lateral ul li {
+  margin: 1.5rem 0;
+}
+
+.menu-lateral ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding-left: 1.5rem;
+  display: block;
+  transition: color 0.3s;
+}
+
+.menu-lateral ul li a:hover {
+  color: #dce6ff;
+}
+
+/* MENÚ ACTIVADO */
+.menu-lateral.activo {
+  left: 0;
+}
